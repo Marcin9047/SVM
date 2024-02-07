@@ -26,7 +26,7 @@ class Kernel_function:
 
 
 @dataclass
-class Model_Hiperparams:
+class Model_hyperparams:
     learning_rate: float
     grad_imax: int
     grad_error: float
@@ -34,12 +34,12 @@ class Model_Hiperparams:
 
 
 class SVM_algorithm:
-    def __init__(self, kernel_class: Kernel_function, hiperparams: Model_Hiperparams):
-        self.learning_rate = hiperparams.learning_rate
-        self.imax = hiperparams.grad_imax
-        self.grad_error = hiperparams.grad_error
+    def __init__(self, kernel_class: Kernel_function, hyperparams: Model_hyperparams):
+        self.learning_rate = hyperparams.learning_rate
+        self.imax = hyperparams.grad_imax
+        self.grad_error = hyperparams.grad_error
         self.kernel = kernel_class.kernel
-        self.alpha_limit = hiperparams.alpha_limit
+        self.alpha_limit = hyperparams.alpha_limit
 
     def fit(self, Xin, Yin):
         self.x_train = Xin
